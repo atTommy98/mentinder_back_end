@@ -1,9 +1,9 @@
-const { query } = require('../index')
+const { query } = require("../index");
 
-const sqlStatement = 
-`CREATE TABLE IF NOT EXISTS mentors_and_bootcampers (
+const sqlStatement = `CREATE TABLE IF NOT EXISTS mentors_and_bootcampers (
     user_id SERIAL PRIMARY KEY,
     name TEXT,
+    bootcamper TEXT,
     email TEXT,
     company TEXT,
     job TEXT,
@@ -31,8 +31,8 @@ const sqlStatement =
     films TEXT
 )`;
 
-async function createTable(){
-    const result = await query(sqlStatement);
-    console.log(result);
+async function createTable() {
+  const result = await query(sqlStatement);
+  console.log(result);
 }
-createTable()
+createTable();

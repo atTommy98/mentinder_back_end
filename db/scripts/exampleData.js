@@ -1,0 +1,33 @@
+const person = [
+  {
+    name: "Patrick",
+    bootcamper: "yes",
+    email: "patrickjosephfleming@gmail.com",
+    company: "",
+    job: null,
+    gender: "male",
+    bio: "hello my name is Patrick",
+    motivation: "",
+    photo: "",
+    gameDevelopment: "no",
+    finance: "no",
+    ux: "maybe",
+    databases: "maybe",
+    frontEnd: "maybe",
+    backEnd: "maybe",
+    projectManagement: "maybe",
+    infrastructure: "maybe",
+    devops: "maybe",
+    testing: "maybe",
+    education: "maybe",
+    security: "maybe",
+    foodAndDrink: "yes",
+    gaming: "no",
+    sportAndFitness: "yes",
+    music: "yes",
+    reading: "yes",
+    films: "yes",
+  },
+];
+
+module.exports = person;
