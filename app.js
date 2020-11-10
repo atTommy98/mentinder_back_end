@@ -1,8 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const mentors = require("./routes/mentors");
-const bootcampers = require("./routes/bootcampers");
+const mentorsAndBootcampers = require("./routes/mentorsAndBootcampers");
 
 const indexRouter = require("./routes/index");
 
@@ -15,7 +14,6 @@ app.use(cookieParser());
 
 app.use("/", indexRouter);
 
-app.use("/mentors", mentors);
-app.use("/bootcampers", bootcampers);
+app.use("/mentorsAndBootcampers", mentorsAndBootcampers);
 
 module.exports = app;
