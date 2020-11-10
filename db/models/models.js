@@ -8,33 +8,32 @@ async function getData() {
 async function populateTable(array) {
   console.log(array);
   const sqlStatement = `INSERT INTO mentors_and_bootcampers (
-        name ,
-        bootcamper,
-        email ,
-        company ,
-        job ,
-        gender ,
-        bio ,
-        motivation ,
-        photo ,
-        game_development ,
-        finance ,
-        ux ,
-        databases ,
-        front_end ,
-        back_end ,
-        project_management ,
-        infrastructure ,
-        devops ,
-        testing ,
-        education ,
-        security ,
-        food_and_drink ,
-        gaming ,
-        sport_and_fitness ,
-        music ,
-        reading ,
-        films )
+    firstname,
+    lastname,
+    email,
+    company,
+    job,
+    role,
+    gender,
+    bio,
+    frontend,
+    backend,
+    gamedev,
+    ux,
+    security,
+    databases,
+    projectmanagement,
+    devops,
+    testing,
+    education,
+    finance,
+    infrastructure,
+    foodanddrink,
+    gaming,
+    sportandfitness,
+    music,
+    reading,
+    films )
     
         VALUES (
             $1,
@@ -62,35 +61,33 @@ async function populateTable(array) {
             $23,
             $24,
             $25,
-            $26,
-            $27
-        )
+            $26
+            )
         
         RETURNING *
     `;
   array.forEach(async function tableRows(personObject) {
     let values = [
-      personObject.name,
-      personObject.bootcamper,
+      personObject.firstname,
+      personObject.lastname,
       personObject.email,
       personObject.company,
       personObject.job,
+      personObject.role,
       personObject.gender,
       personObject.bio,
-      personObject.motivation,
-      personObject.photo,
-      personObject.gameDevelopment,
-      personObject.finance,
+      personObject.frontend,
+      personObject.backend,
+      personObject.gamedev,
       personObject.ux,
+      personObject.security,
       personObject.databases,
-      personObject.frontEnd,
-      personObject.backEnd,
       personObject.projectManagement,
-      personObject.infrastructure,
       personObject.devops,
       personObject.testing,
       personObject.education,
-      personObject.security,
+      personObject.finance,
+      personObject.infrastructure,
       personObject.foodAndDrink,
       personObject.gaming,
       personObject.sportAndFitness,
@@ -103,4 +100,14 @@ async function populateTable(array) {
   });
 }
 
-module.exports = { getData, populateTable };
+async function getAllMentors() {
+  const sqlStatement = `SELECT * FROM mentors_and_bootcampers WHERE role = mentor`;
+  const result = await query(sqlStatement);
+}
+
+async function getAllBootcampers() {
+  const sqlStatement = `SELECT * FROM mentors_and_bootcampers WHERE role = bootcamper`;
+  const result = await query(sqlStatement);
+}
+
+module.exports = { getData, populateTable, getAllMentors, getAllBootcampers };

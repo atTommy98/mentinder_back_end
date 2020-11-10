@@ -3,7 +3,7 @@ const { query } = require("../index");
 const sqlStatement = `CREATE TABLE IF NOT EXISTS mentors_and_bootcampers (
     user_id SERIAL PRIMARY KEY,
     name TEXT,
-    bootcamper TEXT,
+    role TEXT,
     email TEXT,
     company TEXT,
     job TEXT,
