@@ -5,6 +5,7 @@ const {
   getData,
   getAllMentors,
   getAllBootcampers,
+  addTopFive,
 } = require("../db/models/models.js");
 
 router.post("/", async function (req, res) {
@@ -28,6 +29,12 @@ router.get("/mentors", async function (req, res) {
 router.get("/bootcampers", async function (req, res) {
   const result = await getAllBootcampers();
   console.log(result);
+  res.json({ success: true, payload: result });
+});
+
+router.patch("/", async function (req, res) {
+  const topFiveObject = req.body;
+  const result = await addTopFive(topFiveObject);
   res.json({ success: true, payload: result });
 });
 

@@ -34,7 +34,6 @@ async function addUser(personObject) {
     music,
     reading,
     films )
-
         VALUES (
             $1,
             $2,
@@ -110,4 +109,24 @@ async function getAllBootcampers() {
   return result;
 }
 
-module.exports = { getData, addUser, getAllMentors, getAllBootcampers };
+async function addTopFive(topFiveObject) {
+  const sqlStatement = `UPDATE mentors_and_bootcampers 
+    SET 
+    mentorchoice1 = $1, 
+    mentorchoice2 = $2, 
+    mentorchoice3 = $3, 
+    mentorchoice4 = $4, 
+    mentorchoice5 = $5
+      WHERE email = $6`;
+  const result = await query(sqlStatement, [
+    topFiveObject.firstChoice,
+    topFiveObject.secondChoice,
+    topFiveObject.thirdChoice,
+    topFiveObject.fourthChoice,
+    topFiveObject.fifthChoice,
+    topFiveObject.email,
+  ]);
+  return result;
+}
+
+module.exports = { getData, addUser, getAllMentors, getAllBootcampers, addTopFive };

@@ -27,7 +27,12 @@ const sqlStatement = `CREATE TABLE IF NOT EXISTS mentors_and_bootcampers (
     sportandfitness TEXT,
     music TEXT,
     reading TEXT,
-    films TEXT
+    films TEXT,
+    mentorchoice1 TEXT,
+    mentorchoice2 TEXT,
+    mentorchoice3 TEXT,
+    mentorchoice4 TEXT,
+    mentorchoice5 TEXT
 )`;
 
 async function createTable() {
