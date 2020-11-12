@@ -9,6 +9,7 @@ const sqlStatement = `CREATE TABLE IF NOT EXISTS mentors_and_bootcampers (
     job TEXT,
     role TEXT,
     gender TEXT,
+    imgurl TEXT,
     bio TEXT,
     frontend TEXT,
     backend TEXT,

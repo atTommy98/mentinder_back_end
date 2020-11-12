@@ -15,6 +15,7 @@ async function addUser(personObject) {
     job,
     role,
     gender,
+    imgurl,
     bio,
     frontend,
     backend,
@@ -60,7 +61,8 @@ async function addUser(personObject) {
             $23,
             $24,
             $25,
-            $26
+            $26,
+            $27
             )
 
         RETURNING *
@@ -73,6 +75,7 @@ async function addUser(personObject) {
     personObject.job,
     personObject.role,
     personObject.gender,
+    personObject.imgurl,
     personObject.bio,
     personObject.frontend,
     personObject.backend,
